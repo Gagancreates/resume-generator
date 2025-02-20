@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script> <!-- Our main JS file -->
+
+    <link rel="stylesheet" href="styles.css"> <!-- Link CSS -->
+</head>
+<body>
+
+    <div class="container">
+        <!-- User Input Section -->
+        <div class="input-section">
+            <h2>Enter Your Details</h2>
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" oninput="updatePreview()">
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" oninput="updatePreview()">
+            
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" placeholder="Enter your phone number" oninput="updatePreview()">
+            
+            <label for="skills">Skills:</label>
+            <textarea id="skills" placeholder="E.g., JavaScript, Python, C++" oninput="updatePreview()"></textarea>
+
+            <label for="education">Education:</label>
+            <textarea id="education" placeholder="Enter your education details" oninput="updatePreview()"></textarea>
+
+            <label for="experience">Work Experience:</label>
+            <textarea id="experience" placeholder="Enter your work experience" oninput="updatePreview()"></textarea>
+
+            <button onclick="downloadResume()">Download Resume</button>
+        </div>
+
+        <!-- Resume Preview Section -->
+        <div class="resume-section" id="resume">
+            <h2 id="preview-name">Your Name</h2>
+            <p id="preview-email">your.email@example.com</p>
+            <p id="preview-phone">+91 9876543210</p>
+            <h3>Skills</h3>
+            <p id="preview-skills">Your skills here...</p>
+            <h3>Education</h3>
+            <p id="preview-education">Your education details here...</p>
+            <h3>Work Experience</h3>
+            <p id="preview-experience">Your experience here...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- Link JavaScript -->
+</body>
+</html>
