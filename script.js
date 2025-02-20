@@ -9,17 +9,27 @@ function updatePreview() {
 }
 
 function downloadResume() {
-    const resume = document.getElementById("resume"); // Resume section
+    const resume = document.getElementById("resume"); // Select the resume section
 
-    html2canvas(resume).then((canvas) => {
-        const imgData = canvas.toDataURL("image/png");
+    // Capture high-resolution image
+    html2canvas(resume, { scale: 3 }).then((canvas) => { 
+        const imgData = canvas.toDataURL("image/png"); // Convert to PNG image
         const { jsPDF } = window.jspdf;
-        const pdf = new jsPDF("p", "mm", "a4"); // A4 size PDF
+        const pdf = new jsPDF("p", "mm", "a4"); // Create an A4 PDF
 
-        const imgWidth = 210; // A4 width in mm
-        const imgHeight = (canvas.height * imgWidth) / canvas.width; // Scale height
+        const pdfWidth = 210; // A4 width in mm
+        const pdfHeight = 297; // A4 height in mm
 
-        pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
-        pdf.save("Resume.pdf");
+        const imgWidth = pdfWidth; // Full A4 width
+        const imgHeight = (canvas.height * imgWidth) / canvas.width; // Maintain aspect ratio
+
+        // Ensure image fits inside A4 page
+        if (imgHeight > pdfHeight) {
+            pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+        } else {
+            pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+        }
+
+        pdf.save("Resume.pdf"); // Download PDF
     });
 }
