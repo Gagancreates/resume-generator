@@ -6,6 +6,7 @@ function updatePreview() {
     document.getElementById("preview-skills").innerText = document.getElementById("skills").value || "Your skills here...";
     document.getElementById("preview-education").innerText = document.getElementById("education").value || "Your education details here...";
     document.getElementById("preview-experience").innerText = document.getElementById("experience").value || "Your experience here...";
+    document.getElementById("preview-projects").innerText=document.getElementById("projects").value || "Your projects here..."
 }
 
 function downloadResume() {

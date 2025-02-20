@@ -26,13 +26,16 @@
             <input type="text" id="phone" placeholder="Enter your phone number" oninput="updatePreview()">
             
             <label for="skills">Skills:</label>
-            <textarea id="skills" placeholder="E.g., JavaScript, Python, C++" oninput="updatePreview()"></textarea>
+            <textarea id="skills" placeholder="E.g., JavaScript, Python, in points.." oninput="updatePreview()"></textarea>
 
             <label for="education">Education:</label>
             <textarea id="education" placeholder="Enter your education details" oninput="updatePreview()"></textarea>
 
             <label for="experience">Work Experience:</label>
             <textarea id="experience" placeholder="Enter your work experience" oninput="updatePreview()"></textarea>
+            
+            <label for="projects">Projects</label>
+            <textarea id="projects" placeholder="Enter your projects" oninput="updatePreview()"></textarea>
 
             <button onclick="downloadResume()">Download Resume</button>
         </div>
@@ -48,6 +51,8 @@
             <p id="preview-education">Your education details here...</p>
             <h3>Work Experience</h3>
             <p id="preview-experience">Your experience here...</p>
+            <h3>Projects</h3>
+            <p id="preview-projects">Your projects here...</p>
         </div>
     </div>
 
